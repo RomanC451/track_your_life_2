@@ -1,0 +1,1 @@
+web: gunicorn track_your_life.wsgi --log-file -
