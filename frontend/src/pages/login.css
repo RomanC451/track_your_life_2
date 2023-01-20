@@ -33,3 +33,15 @@
 .css-input:focus {
   outline: none;
 }
+
+.gradient-div {
+  background: rgb(37, 76, 158);
+  background: linear-gradient(
+    248deg,
+    rgba(37, 76, 158, 1) 43%,
+    rgba(95, 32, 29, 1) 67%,
+    rgba(215, 181, 102, 1) 96%
+  );
+  background-size: 200%;
+  background-image: cover;
+}

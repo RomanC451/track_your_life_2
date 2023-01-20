@@ -8,7 +8,7 @@ import "./index.css";
 import { AppGeneralContextProvider } from "./contexts/AppGeneralContextProvider";
 import { AppStyleContextProvider } from "./contexts/AppStyleContextProvider";
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("app"));
 
 root.render(
   <AppGeneralContextProvider>
