@@ -1,11 +1,11 @@
-import React from "react";
+import { useRef } from "react";
 
 const useIndexIterator = (arrayLength, startingIndex, continuos = true) => {
-  if (startingIndex > arrayLength - 1) {
-    throw new Error("Invalid starting step!");
+  if (startingIndex >= arrayLength) {
+    throw new Error("Starting index must be less than array length");
   }
 
-  const index = React.useRef(startingIndex);
+  const index = useRef(startingIndex);
 
   const next = () => {
     if (index.current < arrayLength - 1) {

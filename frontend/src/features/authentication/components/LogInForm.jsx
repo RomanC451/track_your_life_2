@@ -16,15 +16,13 @@ const LogInForm = ({ switchAuthMode }) => {
       <TextField label="Email" className="mt-8 w-[80%]" />
       <PasswordField label="Password" className="mt-8 w-[80%]" />
       <AuthenticationButton className="mt-12" text="Log In" />
-      <div className="mt-8">
-        <button
-          type="button"
-          className="hover:underline"
-          onClick={() => switchAuthMode()}
-        >
-          I don't have an account.
-        </button>
-      </div>
+      <button
+        type="button"
+        className="mt-8 hover:underline"
+        onClick={() => switchAuthMode()}
+      >
+        I don't have an account.
+      </button>
     </div>
   );
 };

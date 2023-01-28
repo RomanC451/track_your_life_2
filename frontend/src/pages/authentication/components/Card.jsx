@@ -6,6 +6,7 @@ const cardPos = [0, 345];
 const Card = ({ cardAnimationRef, startingPos }) => {
   return (
     <motion.div
+      id="test-id"
       className={` absolute top-8 left-0 z-10 ml-4 mr-8 flex h-[500px] w-[400px]  flex-col flex-wrap items-center justify-start rounded-2xl bg-[#c5dde2] shadow-2xl `}
       animate={cardAnimationRef}
       initial={{ x: cardPos[startingPos] }}

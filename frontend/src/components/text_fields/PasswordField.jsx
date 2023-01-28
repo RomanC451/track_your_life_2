@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const PasswordField = ({ label, className }) => {
+const PasswordField = ({ label, className, id, onChange }) => {
   const classes = useStyles();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -42,8 +42,11 @@ const PasswordField = ({ label, className }) => {
         <OutlinedInput
           size="small"
           className={classes.radius}
+          name="password"
           sx={{ borderRadius: "50px" }}
           type={showPassword ? "text" : "password"}
+          inputProps={{ "data-testid": `id-input-${id}` }}
+          onChange={onChange}
           endAdornment={
             <InputAdornment position="end" className="iconButton">
               <IconButton

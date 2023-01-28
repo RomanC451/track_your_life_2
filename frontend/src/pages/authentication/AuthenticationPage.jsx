@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { LogInForm, SignUpForm } from "~/features/authentication/";
-import { useLocalStorage } from "~hooks/";
+import { useLocalStorage } from "~/hooks/";
 import { useAppGeneralStateContext } from "~/contexts/AppGeneralContextProvider";
 
 import Card from "./components/Card";

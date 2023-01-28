@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TextField = ({ label, className }) => {
+const TextField = ({ label, className, onChange }) => {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,12 @@ const TextField = ({ label, className }) => {
         >
           {label}
         </InputLabel>
-        <OutlinedInput className={classes.radius} type="text" label={label} />
+        <OutlinedInput
+          className={classes.radius}
+          type="text"
+          label={label}
+          onChange={onChange}
+        />
       </FormControl>
     </div>
   );
