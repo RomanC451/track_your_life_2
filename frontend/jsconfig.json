@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "~/*": ["*"]
+    },
+    "checkJs": true
+  },
+  "exclude": [
+    "./node_modules",
+    "./static",
+    "./templates",
+    "./migrations",
+    "./__pycache__"
+  ]
+}

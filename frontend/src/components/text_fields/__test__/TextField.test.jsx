@@ -4,7 +4,7 @@ import TextField from "../TextField";
 
 describe("Text field tests", () => {
   test("should reder without crashing", () => {
-    render(<TextField label="Label Text" />);
+    render(<TextField label="Label Text" className="" onChange={() => {}} />);
     const inputElement = screen.getByRole("textbox");
     const labelElement = screen.getByText("Label Text", { selector: "label" });
     expect(inputElement).toBeInTheDocument();
@@ -12,7 +12,9 @@ describe("Text field tests", () => {
   });
 
   test("The label can be set via label prop", () => {
-    render(<TextField label="This Label Text" />);
+    render(
+      <TextField label="This Label Text" className="" onChange={() => {}} />
+    );
     const labelElement = screen.getByText("This Label Text", {
       selector: "label",
     });
@@ -21,23 +23,25 @@ describe("Text field tests", () => {
   });
 
   test("The text box should be empty after first render", () => {
-    render(<TextField label="Label Text" />);
+    render(<TextField label="Label Text" className="" onChange={() => {}} />);
     const inputElement = screen.getByRole("textbox");
-    expect(inputElement.value).toBe("");
+    expect(inputElement["value"]).toBe("");
   });
 
   test("The value of the text box can be changed", () => {
-    render(<TextField label="Label Text" />);
+    render(<TextField label="Label Text" className="" onChange={() => {}} />);
     const inputElement = screen.getByRole("textbox");
     fireEvent.change(inputElement, {
       target: { value: "The text was changed" },
     });
-    expect(inputElement.value).toBe("The text was changed");
+    expect(inputElement["value"]).toBe("The text was changed");
   });
 
   test("OnChange function should be called", () => {
     const mockedOnChange = jest.fn();
-    render(<TextField onChange={mockedOnChange} />);
+    render(
+      <TextField label="Label Text" className="" onChange={mockedOnChange} />
+    );
     const inputElement = screen.getByRole("textbox");
     fireEvent.change(inputElement, {
       target: { value: "The text was changed" },

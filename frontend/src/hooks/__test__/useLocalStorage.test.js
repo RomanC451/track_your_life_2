@@ -24,15 +24,15 @@ describe("useLocalStorage tests", () => {
       const { result } = renderHook(() => useLocalStorage("randomName2", 30));
       var [value, setValue] = result.current;
       act(() => setValue(40));
-      [value, _] = result.current;
+      [value] = result.current;
       expect(value).toBe(40);
     });
 
     test("Value should be stored in local storage after calling setValue method", async () => {
       const { result } = renderHook(() => useLocalStorage("randomName2", 30));
       var [value, setValue] = result.current;
-      await act(() => setValue(50));
-      [value, _] = result.current;
+      act(() => setValue(50));
+      [value] = result.current;
       expect(localStorage.getItem("randomName2")).toBe("50");
     });
   });

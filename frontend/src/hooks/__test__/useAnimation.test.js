@@ -32,13 +32,7 @@ test("animation ref should be defined correctly", () => {
 var testId = 0;
 
 describe("vertical and horizontal movement", () => {
-  function setupElement(id) {
-    const [animationRef, startAnimation] = getHookReturns([
-      { x: -200, y: -200 },
-      { x: 0, y: 0 },
-      { x: 200, y: 200 },
-    ]);
-
+  function setupElement(id, animationRef) {
     render(
       <MockElement
         animationRef={animationRef}
@@ -46,13 +40,16 @@ describe("vertical and horizontal movement", () => {
         id={id}
       />
     );
-
-    return [animationRef, startAnimation];
   }
 
   test("1", async () => {
     const id = testId++;
-    const [animationRef, startAnimation] = setupElement(id);
+    const [animationRef, startAnimation] = getHookReturns([
+      { x: -200, y: -200 },
+      { x: 0, y: 0 },
+      { x: 200, y: 200 },
+    ]);
+    setupElement(id, animationRef);
 
     const divElement = screen.getByTestId(`animated-div-${id}`);
 
@@ -67,7 +64,12 @@ describe("vertical and horizontal movement", () => {
 
   test("2", async () => {
     const id = testId++;
-    const [animationRef, startAnimation] = setupElement(id);
+    const [animationRef, startAnimation] = getHookReturns([
+      { x: -200, y: -200 },
+      { x: 0, y: 0 },
+      { x: 200, y: 200 },
+    ]);
+    setupElement(id, animationRef);
 
     const divElement = screen.getByTestId(`animated-div-${id}`);
 
@@ -85,13 +87,7 @@ describe("vertical and horizontal movement", () => {
   });
 
   describe("rotation", () => {
-    function setupElement(id) {
-      const [animationRef, startAnimation] = getHookReturns([
-        { rotate: 150 },
-        { rotate: 0 },
-        { rotate: 360 },
-      ]);
-
+    function setupElement(id, animationRef) {
       render(
         <MockElement
           animationRef={animationRef}
@@ -99,14 +95,18 @@ describe("vertical and horizontal movement", () => {
           id={id}
         />
       );
-
-      return [animationRef, startAnimation];
     }
 
     test("1", async () => {
       const id = testId++;
 
-      const [animationRef, startAnimation] = setupElement(id);
+      const [animationRef, startAnimation] = getHookReturns([
+        { rotate: 150 },
+        { rotate: 0 },
+        { rotate: 360 },
+      ]);
+      setupElement(id, animationRef);
+
       const divElement = screen.getByTestId(`animated-div-${id}`);
 
       expect(divElement.style.transform).toBe("rotate(150deg) translateZ(0)");
@@ -119,7 +119,12 @@ describe("vertical and horizontal movement", () => {
     test("2", async () => {
       const id = testId++;
 
-      const [animationRef, startAnimation] = setupElement(id);
+      const [animationRef, startAnimation] = getHookReturns([
+        { rotate: 150 },
+        { rotate: 0 },
+        { rotate: 360 },
+      ]);
+      setupElement(id, animationRef);
       const divElement = screen.getByTestId(`animated-div-${id}`);
 
       await startAnimation(2, () => {

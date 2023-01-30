@@ -32,18 +32,11 @@ const PasswordField = ({ label, className, id, onChange }) => {
 
   return (
     <div className={className}>
-      <FormControl sx={{ m: 1, width: 100 }} variant="outlined" fullWidth>
-        <InputLabel
-          htmlFor="outlined-adornment-password"
-          className={classes.label}
-        >
-          {label}
-        </InputLabel>
+      <FormControl variant="outlined" fullWidth>
+        <InputLabel htmlFor="outlined-adornment-password">{label}</InputLabel>
         <OutlinedInput
-          size="small"
           className={classes.radius}
-          name="password"
-          sx={{ borderRadius: "50px" }}
+          name={label.toLowerCase()}
           type={showPassword ? "text" : "password"}
           inputProps={{ "data-testid": `id-input-${id}` }}
           onChange={onChange}
